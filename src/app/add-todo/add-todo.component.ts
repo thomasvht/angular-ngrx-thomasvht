@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {TodoState} from "../statemanagement/state/TodoState";
 import {AddTodo} from "../statemanagement/actions/todos";
-import * as uuid from 'uuid-v4';
+var uuid = require('uuid-v4');
+// import * as uuid from 'uuid-v4';
 
 @Component({
   selector: 'app-add-todo',
