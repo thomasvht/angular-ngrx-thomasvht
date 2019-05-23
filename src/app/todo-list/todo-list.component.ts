@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Todo, TodoState} from "../statemanagement/state/TodoState";
 import {select, Store} from "@ngrx/store";
+import {CompleteTodo, DeleteTodo} from "../statemanagement/actions/todos";
 
 @Component({
   selector: 'app-todo-list',
@@ -16,12 +17,12 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  complete(todo: any) {
-    // this.todosService.complete(todo);
+  complete(todo: Todo) {
+    this.store.dispatch(new CompleteTodo(todo));
   }
 
   delete(id: any) {
-    // this.todosService.delete(id);
+    this.store.dispatch(new DeleteTodo(id));
   }
 
   trackByFn(index, todo) {

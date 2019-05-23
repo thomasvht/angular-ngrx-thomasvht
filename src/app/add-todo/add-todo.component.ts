@@ -18,7 +18,8 @@ export class AddTodoComponent implements OnInit {
 
   add(input: HTMLInputElement) {
     const id = uuid();
-    this.store.dispatch(new AddTodo(id, input.value, false));
+    const todo = {id: id, title: input.value, completed: false};
+    this.store.dispatch(new AddTodo(todo));
     input.value = '';
   }
 }
