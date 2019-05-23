@@ -6,6 +6,10 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import {StoreModule} from "@ngrx/store";
+import {metaReducers, featureReducer} from "./statemanagement/rootReducer";
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import {ReactiveFormsModule} from "@angular/forms";
   ],
     imports: [
         BrowserModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        StoreModule.forRoot(featureReducer, {metaReducers}),
+        !environment.production ? StoreDevtoolsModule.instrument() : []
     ],
   providers: [],
   bootstrap: [AppComponent]

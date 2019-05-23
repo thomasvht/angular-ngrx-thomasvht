@@ -135,6 +135,5 @@
         }
       }
     }
-  },
-  "defaultProject": "angular-ngrx-thomasvht"
+  }
 }
